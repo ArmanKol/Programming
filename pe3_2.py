@@ -3,5 +3,4 @@ paspoort = input("Nederlands paspoort: ")
 
 if age >= 18 and paspoort == "ja":
     print("Gefeliciteerd, je mag stemmen!")
-else:
-    print("Je mag niet stemmen.")
+

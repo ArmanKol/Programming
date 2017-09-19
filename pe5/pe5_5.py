@@ -1,7 +1,7 @@
 def gemiddelde(zin):
     for word in zin:
-        wordcount = len(zin.split())
-        lengtezin = len(zin)
+        wordcount = len(zin.split()) #splitst de woorden en neemt daarna het aantal woorden in de lijst
+        lengtezin = len(zin) # Berekent alle letters in de lijst
         antwoord = lengtezin / wordcount
     return antwoord
 

@@ -11,5 +11,4 @@ def vierletter(lijst):
 invoer = eval(input("Geef lijst met minimaal 10 strings: "))
 lijst1 = ["boter", "kaas", "bier", "pizza","thee", "drop", "koek", "cola", "boterham", "stamppot"]
 
-
 vierletter(invoer)

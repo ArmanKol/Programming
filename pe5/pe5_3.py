@@ -9,9 +9,10 @@ infile.close()
 
 infile = open("kaartnummers.txt", "r")
 kaartnummers = infile.read()
-aantalregels = kaartnummers.count("\n")
+aantalregels = kaartnummers.count(",")
 hoogstekaartnummer = hoogste[:6]
+
 infile.close()
 
 print("Deze file telt " + str(aantalregels) + " regels")
-print("Het grootste kaartnummer is: " + hoogstekaartnummer + " en staat op regel")
+print("Het grootste kaartnummer is: " + hoogstekaartnummer + " en staat op regel ")

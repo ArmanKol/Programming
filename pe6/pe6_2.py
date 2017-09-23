@@ -4,7 +4,7 @@ import os
 def vierletter(lijst):
     res = []
     for woorden in lijst:
-        if len(woorden) == 4:
+        if len(woorden) == 4 and len(lijst) == 10:
             res.append(woorden)
     print(res)
 

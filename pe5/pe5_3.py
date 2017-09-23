@@ -1,6 +1,6 @@
 import os
 import sys
-
+#NOG NIET AF
 infile = open("kaartnummers.txt", "r")
 
 for hoogstecijfer in infile:

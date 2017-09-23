@@ -8,7 +8,7 @@ def gemiddelde_per_student(studentencijfers):
     antw= [sum(res[0:3]) / 3, sum(res[3:6]) / 3, sum(res[6:9]) / 3, sum(res[9:12]) / 3]
     return antw
 
-def gemiddelde_van_alle_studenten(studentencijfes):
+def gemiddelde_van_alle_studenten(studentencijfers):
     res = []
     for row in studentencijfers:
         for items in row:

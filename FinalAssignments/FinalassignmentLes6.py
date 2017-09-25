@@ -2,11 +2,10 @@ import sys
 import os
 #Deze functie leest kluizen.txt en splitst de inhoud. Daarna wordt het aantal kluizen bepaald en returned.
 def toon_aantal_kluizen_vrij(invoer):
-    kluizenread = infile.read()
-    aantalkluizen = kluizenread.count(";")
-    kluizen = 12 - aantalkluizen
+    kluizenread = infile.readlines()
+    aantalkluizen = len(kluizenread)
+    return aantalkluizen
     infile.close()
-    return kluizen
 
 #Kluizen.txt wordt gelezen en de inhoud wordt omgezet in een lijst met alleen de kluisnummers.
 #Vervolgens moet je een kluiscode intypen en dat wordt dan samen met de kluisnummer opgeslagen.
@@ -61,5 +60,5 @@ if invoer == 2:
 
 if invoer == 3:
     kluis_openen(invoer)
-else:
+elif invoer == 0 or invoer >= 4:
     print("Je hebt geen geldige nummer gekozen.")

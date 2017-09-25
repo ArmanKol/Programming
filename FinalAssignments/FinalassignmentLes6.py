@@ -16,11 +16,18 @@ def nieuwe_kluis(invoer):
     for kluisnummers in kluizenread:
         Nieuw = kluisnummers[:2]
         GetalNieuw = Nieuw.strip(";")
-        res.append(int(GetalNieuw))
-    nummersKluis = [x for x in nummersKluis if x not in res]
-    if nummersKluis != 0:
-        kluiscode = input("Type hier de code voor je nieuwe kluis in: ")
+        res.append(GetalNieuw)
+        nummersKluis = [x for x in nummersKluis if x not in res]
+    if nummersKluis != []:
+        kluiscode = input("Type hier je kluiscode voor je nieuwe kluis in: ")
+        laagsteNummer = min(nummersKluis)
+        kluiscombinatie = ("{};{}".format(laagsteNummer,kluiscode))
+        outfile = open("kluizen.txt", "a")
+        outfile.write(kluiscombinatie)
+        outfile.write("\n")
+        outfile.close()
 
+infile = open("kluizen.txt", "r")
 #Kluis wordt geopend door middel van kluisnummer en kluiscode. De combinatie gaat door een loop en als de combinatie klopt krijg je een bericht.
 def kluis_openen(invoer):
     kluizenread = infile.read()
@@ -44,8 +51,6 @@ def kluis_teruggeven(invoer):
         print("Je kluis is terug gegeven.")
     else:
         print("Je kluiscombinatie klopt niet.")
-
-infile = open("kluizen.txt", "r")
 
 print("1: Ik wil weten hoeveel kluizen nog vrij zijn")
 print("2: Ik wil een nieuwe kluis")

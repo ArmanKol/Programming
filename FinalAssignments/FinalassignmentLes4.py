@@ -20,6 +20,6 @@ def ritprijs(leeftijd, weekendrit, afstandKM):
 
 leefTijd = int(input("Voer hier je leeftijd in: "))
 afstandkm = int(input("Voer hier je afstand in KM in: "))
-dag = str(input("Heb je in het weekend gereisd: "))
-print(str("De kosten zijn: €"),ritprijs(leefTijd, dag, afstandkm))
+dag = input("Heb je in het weekend gereisd: ")
+print("De kosten zijn: €",ritprijs(leefTijd, dag, afstandkm))
 

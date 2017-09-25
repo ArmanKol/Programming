@@ -1,19 +1,22 @@
 import sys
 import os
-#Deze functie leest kluizen.txt en splitst de inhoud. Daarna wordt het aantal kluizen bepaald en returned.
+#Deze functie leest de regels van kluizen.txt. Daarna wordt het aantal regels bepaald met kluizenlines.
+#12 - aantal regels in kluizen.txt is het aantal kluizen dat nog vrij is. Geeft aantalkluizen terug.
 def toon_aantal_kluizen_vrij(invoer):
-    kluizenread = infile.readlines()
-    aantalkluizen = len(kluizenread)
+    kluizenLezen = infile.readlines()
+    kluizenregels = len(kluizenLezen)
+    aantalkluizen = 12 - kluizenregels
     infile.close()
     return aantalkluizen
 
 #Kluizen.txt wordt gelezen en de inhoud wordt omgezet in een lijst met alleen de kluisnummers.
-#Vervolgens moet je een kluiscode intypen en dat wordt dan samen met de kluisnummer opgeslagen.
+#Alle nummers dat in res staat en nummersKluis wordt bij lijst nummersKluis eraf gehaald. Zo hou je alleen kluisnummers over die niet bezet zijn.
+#Vervolgens moet je een kluiscode intypen en dat wordt dan samen met de kluisnummer opgeslagen in kluizen.txt.
 def nieuwe_kluis(invoer):
-    kluizenread = infile.readlines()
+    kluizenLezen = infile.readlines()
     nummersKluis = [1,2,3,4,5,6,7,8,9,10,11,12]
     res = []
-    for kluisnummers in kluizenread:
+    for kluisnummers in kluizenLezen:
         Nieuw = kluisnummers[:2]
         GetalNieuw = Nieuw.strip(";")
         res.append(int(GetalNieuw))
@@ -33,12 +36,12 @@ def nieuwe_kluis(invoer):
 
 #Kluis wordt geopend door middel van kluisnummer en kluiscode. De combinatie gaat door een loop en als de combinatie klopt krijg je een bericht.
 def kluis_openen(invoer):
-    kluizenread = infile.read()
+    kluizenLezen = infile.read()
     kluisnummer = str(input("Toets kluisnummer in: "))
     kluiscode = str(input("Wat is je kluiscode: "))
     kluiscombinatie = kluisnummer+";"+kluiscode
-    for kluizen in kluizenread:
-        if kluiscombinatie in kluizenread:
+    for kluizen in kluizenLezen:
+        if kluiscombinatie in kluizenLezen:
             return print("Je hebt toegang tot je kluis")
         else:
             return print("Je hebt geen toegang.")

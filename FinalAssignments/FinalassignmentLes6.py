@@ -4,8 +4,8 @@ import os
 def toon_aantal_kluizen_vrij(invoer):
     kluizenread = infile.readlines()
     aantalkluizen = len(kluizenread)
-    return aantalkluizen
     infile.close()
+    return aantalkluizen
 
 #Kluizen.txt wordt gelezen en de inhoud wordt omgezet in een lijst met alleen de kluisnummers.
 #Vervolgens moet je een kluiscode intypen en dat wordt dan samen met de kluisnummer opgeslagen.

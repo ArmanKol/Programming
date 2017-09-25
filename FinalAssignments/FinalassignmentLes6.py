@@ -6,7 +6,6 @@ def toon_aantal_kluizen_vrij(invoer):
     kluizenLezen = infile.readlines()
     kluizenregels = len(kluizenLezen)
     aantalkluizen = 12 - kluizenregels
-    infile.close()
     return aantalkluizen
 
 #Kluizen.txt wordt gelezen en de inhoud wordt omgezet in een lijst met alleen de kluisnummers.
@@ -32,7 +31,6 @@ def nieuwe_kluis(invoer):
         outfile.close()
     else:
         print("Er zijn geen kluizen meer over.")
-    infile.close()
 
 #Kluis wordt geopend door middel van kluisnummer en kluiscode. De combinatie gaat door een loop en als de combinatie klopt krijg je een bericht.
 def kluis_openen(invoer):
@@ -45,7 +43,6 @@ def kluis_openen(invoer):
             return print("Je hebt toegang tot je kluis")
         else:
             return print("Je hebt geen toegang.")
-    infile.close()
 
 infile = open("kluizen.txt", "r")
 
@@ -65,3 +62,5 @@ if invoer == 3:
     kluis_openen(invoer)
 elif invoer == 0 or invoer >= 4:
     print("Je hebt geen geldige nummer gekozen.")
+
+infile.close()

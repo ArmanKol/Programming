@@ -1,14 +1,15 @@
 import sys
 import os
-#NOG NIET AF
-
 #Deze functie leest kluizen.txt en splitst de inhoud. Daarna wordt het aantal kluizen bepaald en returned.
 def toon_aantal_kluizen_vrij(invoer):
     kluizenread = infile.read()
     aantalkluizen = kluizenread.count(";")
     kluizen = 12 - aantalkluizen
+    infile.close()
     return kluizen
 
+#Kluizen.txt wordt gelezen en de inhoud wordt omgezet in een lijst met alleen de kluisnummers.
+#Vervolgens moet je een kluiscode intypen en dat wordt dan samen met de kluisnummer opgeslagen.
 def nieuwe_kluis(invoer):
     kluizenread = infile.readlines()
     nummersKluis = [1,2,3,4,5,6,7,8,9,10,11,12]
@@ -16,18 +17,21 @@ def nieuwe_kluis(invoer):
     for kluisnummers in kluizenread:
         Nieuw = kluisnummers[:2]
         GetalNieuw = Nieuw.strip(";")
-        res.append(GetalNieuw)
+        res.append(int(GetalNieuw))
         nummersKluis = [x for x in nummersKluis if x not in res]
-    if nummersKluis != []:
+    if len(nummersKluis) > 0:
         kluiscode = input("Type hier je kluiscode voor je nieuwe kluis in: ")
         laagsteNummer = min(nummersKluis)
-        kluiscombinatie = ("{};{}".format(laagsteNummer,kluiscode))
+        kluiscombinatie = ("{};{}".format(laagsteNummer, kluiscode))
+        print("Het is gelukt. Je hebt kluisnummer:", laagsteNummer)
         outfile = open("kluizen.txt", "a")
         outfile.write(kluiscombinatie)
         outfile.write("\n")
         outfile.close()
+    else:
+        print("Er zijn geen kluizen meer over.")
+    infile.close()
 
-infile = open("kluizen.txt", "r")
 #Kluis wordt geopend door middel van kluisnummer en kluiscode. De combinatie gaat door een loop en als de combinatie klopt krijg je een bericht.
 def kluis_openen(invoer):
     kluizenread = infile.read()
@@ -39,23 +43,13 @@ def kluis_openen(invoer):
             return print("Je bent in je kluis")
         else:
             return print("Je bent niet in je kluis")
+    infile.close()
 
-
-def kluis_teruggeven(invoer):
-    kluizenread = infile.read()
-    kluisnummer = input("Toets kluisnummer in: ")
-    kluiscode = input("Wat is je kluiscode: ")
-    kluiscombinatie = kluisnummer+";"+kluiscode
-    if kluiscombinatie in kluizenread:
-        kluizenread.replace(kluiscombinatie, "")
-        print("Je kluis is terug gegeven.")
-    else:
-        print("Je kluiscombinatie klopt niet.")
+infile = open("kluizen.txt", "r")
 
 print("1: Ik wil weten hoeveel kluizen nog vrij zijn")
 print("2: Ik wil een nieuwe kluis")
 print("3: Ik wil even iets uit mijn kluis halen")
-print("4: Ik geef mijn kluis terug")
 
 invoer = int(input("Kies een nummer: "))
 
@@ -67,6 +61,5 @@ if invoer == 2:
 
 if invoer == 3:
     kluis_openen(invoer)
-
-if invoer == 4:
-    kluis_teruggeven(invoer)
+else:
+    print("Je hebt geen geldige nummer gekozen.")

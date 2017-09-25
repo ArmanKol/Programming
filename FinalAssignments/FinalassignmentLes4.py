@@ -8,13 +8,13 @@ def standaardprijs(afstandKM):
     return totaalstandaardprijs
 
 def ritprijs(leeftijd, weekendrit, afstandKM):
-    if leeftijd < 12 or leeftijd >=65 and weekendrit in ("nee"):
+    if leeftijd < 12 or leeftijd >=65 and weekendrit == False:
         ritprijskorting = standaardprijs(afstandKM)*0.70
-        if leeftijd < 12 or leeftijd >= 65 and weekendrit in ("ja"):
+        if leeftijd < 12 or leeftijd >= 65 and weekendrit == True:
             ritprijskorting = standaardprijs(afstandKM)*0.65
-    elif leeftijd >= 12 or leeftijd <= 65 and weekendrit in ("nee"):
+    elif leeftijd >= 12 or leeftijd <= 65 and weekendrit == False:
         ritprijskorting = standaardprijs(afstandKM)*1
-        if leeftijd >= 12 or leeftijd <= 65 and weekendrit in ("ja"):
+        if leeftijd >= 12 or leeftijd <= 65 and weekendrit == True:
             ritprijskorting = standaardprijs(afstandKM)*0.60
     return ritprijskorting
 

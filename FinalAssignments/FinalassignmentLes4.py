@@ -1,10 +1,10 @@
 def standaardprijs(afstandKM):
-    if afstandKM > 50:
-        totaalstandaardprijs = 15 + 0.60*afstandKM
+    if afstandKM <= 0:
+        totaalstandaardprijs = 0
     elif afstandKM <= 50:
         totaalstandaardprijs = 0.80*afstandKM
-    elif afstandKM <= 0:
-        totaalstandaardprijs = 0
+    elif afstandKM > 50:
+        totaalstandaardprijs = 15 + 0.60*afstandKM
     return totaalstandaardprijs
 
 def ritprijs(leeftijd, weekendrit, afstandKM):

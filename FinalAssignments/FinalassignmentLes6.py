@@ -40,9 +40,9 @@ def kluis_openen(invoer):
     kluiscombinatie = kluisnummer+";"+kluiscode
     for kluizen in kluizenread:
         if kluiscombinatie in kluizenread:
-            return print("Je bent in je kluis")
+            return print("Je hebt toegang tot je kluis")
         else:
-            return print("Je bent niet in je kluis")
+            return print("Je hebt geen toegang.")
     infile.close()
 
 infile = open("kluizen.txt", "r")

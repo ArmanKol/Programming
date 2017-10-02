@@ -35,8 +35,8 @@ def nieuwe_kluis(invoer):
 #Kluis wordt geopend door middel van kluisnummer en kluiscode. De combinatie gaat door een loop en als de combinatie klopt krijg je een bericht.
 def kluis_openen(invoer):
     kluizenLezen = infile.read()
-    kluisnummer = str(input("Toets kluisnummer in: "))
-    kluiscode = str(input("Wat is je kluiscode: "))
+    kluisnummer = input("Toets kluisnummer in: ")
+    kluiscode = input("Wat is je kluiscode: ")
     kluiscombinatie = kluisnummer+";"+kluiscode
     for kluizen in kluizenLezen:
         if kluiscombinatie in kluizenLezen:

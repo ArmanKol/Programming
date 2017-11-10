@@ -7,6 +7,17 @@ def standaardprijs(afstandKM):
         totaalstandaardprijs = 15 + 0.60*afstandKM
     return totaalstandaardprijs
 
+
+def weekendrit():
+    global dag
+    dag = dag.lower()
+
+    if dag == "ja":
+        dag = True
+    elif dag == "nee":
+        dag = False
+
+
 def ritprijs(leeftijd, weekendrit, afstandKM):
     if leeftijd < 12 or leeftijd >=65 and weekendrit == False:
         ritprijskorting = standaardprijs(afstandKM)*0.70
@@ -18,8 +29,11 @@ def ritprijs(leeftijd, weekendrit, afstandKM):
         ritprijskorting = standaardprijs(afstandKM)*0.60
     return ritprijskorting
 
+
 leefTijd = int(input("Voer hier je leeftijd in: "))
 afstandkm = int(input("Voer hier je afstand in KM in: "))
-dag = input("Heb je in het weekend gereisd: ")
+dag = input("Heb je in het weekend gereisd. Ja/Nee: ")
+weekendrit()
+
 print("De kosten zijn: €",ritprijs(leefTijd, dag, afstandkm))
 

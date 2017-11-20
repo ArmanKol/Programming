@@ -34,4 +34,3 @@ elif "nee" in dag:
     dag = False
 
 print("De kosten zijn: €",ritprijs(leefTijd, dag, afstandkm))
-

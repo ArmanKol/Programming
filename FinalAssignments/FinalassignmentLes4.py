@@ -8,16 +8,6 @@ def standaardprijs(afstandKM):
         totaalstandaardprijs = 15 + 0.60*afstandKM
     return totaalstandaardprijs
 
-#Hier wordt gekeken of dag die je bij input invoerd gelijk is aan "ja" of "nee". Bij ja krijg je een True en bij nee een False
-def weekendrit():
-    global dag
-    dag = dag.lower()
-
-    if "ja" in dag:
-        return True
-    elif "nee" in dag:
-        return False
-
 #Hier neemt die de leeftijd mee en bekijkt bij welke if statement het hoort. Ook wordt er gekeken naar of het een weekendrit is of niet. Vervolgens wordt de nieuwe prijs uitgerekent
 #en die prijs wordt gereturned.
 def ritprijs(leeftijd, weekendrit, afstandKM):
@@ -35,7 +25,13 @@ def ritprijs(leeftijd, weekendrit, afstandKM):
 leefTijd = int(input("Voer hier je leeftijd in: "))
 afstandkm = int(input("Voer hier je afstand in KM in: "))
 dag = input("Heb je in het weekend gereisd. Ja/Nee: ")
-weekendrit()
+
+dag = dag.lower()
+
+if "ja" in dag:
+    dag == True
+elif "nee" in dag:
+    dag == False
 
 print("De kosten zijn: €",ritprijs(leefTijd, dag, afstandkm))
 
